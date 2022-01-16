@@ -1,1 +1,46 @@
-{"sections":{"main":{"type":"main-page","settings":{}},"freq-q":{"type":"faq","blocks":{"c2652989-c32c-4b7a-b784-c0e47b29eab8":{"type":"text","settings":{"question":"What is the purpose of this site?","answer":"<p>It is a sample eCommerce site created using Shopify's Dawn theme.<\/p>"}},"c49d29a5-2825-43c8-800a-8b17fc6e1828":{"type":"text","settings":{"question":"Can I purchase the listed products?","answer":"<p>No, they are purely for demonstration purposes.<\/p>"}},"c7e9ac36-15b2-468f-9b61-b2e3c22f7e89":{"type":"text","settings":{"question":"Can I view the code for the site?","answer":"<p>Yes, it is available on GitHub.<\/p>"}}},"block_order":["c2652989-c32c-4b7a-b784-c0e47b29eab8","c49d29a5-2825-43c8-800a-8b17fc6e1828","c7e9ac36-15b2-468f-9b61-b2e3c22f7e89"],"settings":{}}},"order":["main","freq-q"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "freq-qs": {
+      "type": "faq",
+      "blocks": {
+        "c2652989-c32c-4b7a-b784-c0e47b29eab8": {
+          "type": "text",
+          "settings": {
+            "question": "What is the purpose of this site?",
+            "answer": "<p>It is a sample eCommerce site created using Shopify's Dawn theme.<\/p>"
+          }
+        },
+        "c49d29a5-2825-43c8-800a-8b17fc6e1828": {
+          "type": "text",
+          "settings": {
+            "question": "Can I purchase the listed products?",
+            "answer": "<p>No, they are purely for demonstration purposes.<\/p>"
+          }
+        },
+        "c7e9ac36-15b2-468f-9b61-b2e3c22f7e89": {
+          "type": "text",
+          "settings": {
+            "question": "Can I view the code for the site?",
+            "answer": "<p>Yes, it is available on GitHub.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "c2652989-c32c-4b7a-b784-c0e47b29eab8",
+        "c49d29a5-2825-43c8-800a-8b17fc6e1828",
+        "c7e9ac36-15b2-468f-9b61-b2e3c22f7e89"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "freq-qs"
+  ]
+}
