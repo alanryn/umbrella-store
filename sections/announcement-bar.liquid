@@ -1,52 +1,45 @@
-{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-
-{%- liquid
-  assign social_icons = true
-  if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
-    assign social_icons = false
-  endif
-  if section.settings.enable_country_selector or section.settings.enable_language_selector
-    assign language_country_selector = true
-  endif
-  if section.blocks.size > 0
-    assign announcement_bar = true
-  endif
--%}
-
-{% if social_icons %}
-  {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
-{% endif %}
-
-<div
-  class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
-  {{ block.shopify_attributes }}
->
-  <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
-    {%- if section.settings.show_social and social_icons -%}
-      {%- render 'social-icons' -%}
-    {%- endif -%}
-    {%- if section.blocks.size == 1 -%}
-      <div
-        class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
-        role="region"
-        aria-label="{{ 'sections.header.announcement' | t }}"
-        {{ block.shopify_attributes }}
-      >
-        {%- if section.blocks.first.settings.text != blank -%}
-          {%- if section.blocks.first.settings.link != blank -%}
-            <a
-              href="{{ section.blocks.first.settings.link }}"
-              class="announcement-bar__link link link--text focus-inset animate-arrow"
-            >
+{%- for block in section.blocks -%}
+  {%- case block.type -%}
+    {%- when 'announcement' -%}
+      <div class="announcement-bar color-{{ block.settings.color_scheme }} gradient" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+        {%- if block.settings.message_one != blank -%}
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
           {%- endif -%}
-          <p class="announcement-bar__message h5">
-            <span>{{ section.blocks.first.settings.text | escape }}</span>
-            {%- if section.blocks.first.settings.link != blank -%}
-              {% render 'icon-arrow' %}
-            {%- endif -%}
-          </p>
-          {%- if section.blocks.first.settings.link != blank -%}
+  <div class="page-width marquee enable-animation marquee--hover-pause">
+
+  <ul class="marquee__content">
+      <li class="announcement-bar__message {{ block.settings.text_alignment }} h5">
+                  {{ block.settings.message_one | escape }}
+                  {%- if block.settings.link != blank -%}
+                    {% render 'icon-arrow' %}
+                  {%- endif -%}
+                </li>
+      <li class="announcement-bar__message {{ block.settings.text_alignment }} h5">
+                  {{ block.settings.message_two | escape }}
+                  {%- if block.settings.link != blank -%}
+                    {% render 'icon-arrow' %}
+                  {%- endif -%}
+                </li>
+  </ul>
+
+        <ul aria-hidden="true" class="marquee__content">
+                <li class="announcement-bar__message {{ block.settings.text_alignment }} h5">
+                  {{ block.settings.message_one | escape }}
+                  {%- if block.settings.link != blank -%}
+                    {% render 'icon-arrow' %}
+                  {%- endif -%}
+                </li>
+            <li class="announcement-bar__message {{ block.settings.text_alignment }} h5">
+                  {{ block.settings.message_two | escape }}
+                  {%- if block.settings.link != blank -%}
+                    {% render 'icon-arrow' %}
+                  {%- endif -%}
+                </li>
+        </ul>               
+               
+              </div>
+          {%- if block.settings.link != blank -%}
             </a>
           {%- endif -%}
         {%- endif -%}
@@ -298,11 +291,17 @@
       "type": "announcement",
       "name": "t:sections.announcement-bar.blocks.announcement.name",
       "settings": [
-        {
+         {
           "type": "text",
-          "id": "text",
-          "default": "Welcome to our store",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+          "id": "message_one",
+          "default": "Message one",
+          "label": "Announcement one"
+        },
+             {
+          "type": "text",
+          "id": "message_two",
+          "default": "Message two",
+          "label": "Announcement two"
         },
         {
           "type": "url",
@@ -324,3 +323,85 @@
   ]
 }
 {% endschema %}
+<style>
+
+.marquee {
+  --gap: 1rem;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+}
+/*   make width 50% on screens bigger than 769px  */
+@media screen and (min-width: 769px) {
+  .marquee {
+    width: 50vw;
+  }
+}
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+}
+
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__content {
+    animation-play-state: paused !important;
+  }
+}
+
+/* Enable animation */
+.enable-animation .marquee__content {
+  animation: scroll 20s linear infinite;
+}
+
+/* Pause on hover */
+.marquee--hover-pause:hover .marquee__content {
+  animation-play-state: paused;
+}
+
+.marquee--fit-content {
+  max-width: fit-content;
+}
+
+
+.marquee--pos-absolute .marquee__content:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.enable-animation .marquee--pos-absolute .marquee__content:last-child {
+  animation-name: scroll-abs;
+}
+
+@keyframes scroll-abs {
+  from {
+    transform: translateX(calc(100% + var(--gap)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+</style>
+
+
+
+
+
+
+
