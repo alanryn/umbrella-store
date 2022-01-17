@@ -26,7 +26,7 @@
           "type": "text",
           "settings": {
             "question": "Can I view the code for the site?",
-            "answer": "<p>Yes, it is available on GitHub.<\/p>"
+            "answer": "<p>Yes, it is available on <a href=\"https:\/\/github.com\/alanryn\/umbrella-store\" target=\"_blank\" title=\"github repo for site\">GitHub<\/a>.<\/p>"
           }
         }
       },
