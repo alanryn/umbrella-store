@@ -180,8 +180,10 @@ fieldset.product-form__input .form__label {
 }
 
 .product-form__input input[type='radio'] + label {
-  border: 0.1rem solid rgba(var(--color-foreground), 0.55);
-  border-radius: 4rem;
+/*   border: 0.1rem solid rgba(var(--color-foreground), 0.55); */
+  border-radius: 1rem;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow:  1rem 1rem 2rem #bebebe, -1rem -1rem 2rem #ffffff;
   color: rgb(var(--color-foreground));
   display: inline-block;
   margin: 0.7rem 0.5rem 0.2rem 0;
@@ -199,7 +201,7 @@ fieldset.product-form__input .form__label {
 }
 
 .product-form__input input[type='radio']:checked + label {
-  background-color: rgb(var(--color-foreground));
+  background: linear-gradient(145deg, #868e96, #212529);
   color: rgb(var(--color-background));
 }
 
