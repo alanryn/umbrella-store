@@ -48,6 +48,12 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "647dcd0a-1443-44d3-8f96-e5dbba32d66d": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% assign out_of_stock = false %}\n{% for variant in product.variants %}\n  {% if variant.available == false %}\n    {% assign out_of_stock = true %}\n  {% endif %}\n{% endfor %}\n\n{% if out_of_stock == true %}\n\n  {% form 'contact' %}\n    {% if form.posted_successfully? %}\n    <p> Thanks! We will notify you when your item is available.<\/p>\n    {% else %}\n    <a class=\"product-popup-modal__button link\" id=\"notify-me\">Item out of stock?<\/a>\n    {% endif %}\n    {% unless form.posted_successfully? %}\n    <div id=\"wrapper\" class=\"hide\" >\n    \t<div class=\"waiting-wrapper\">\n          <input autofocus\n                 name=\"contact[email]\"\n                 id=\"ContactFormEmail\"\n                 value=\"{{ contact.fields.email }}\"\n                 type=\"email\" aria-label=\"Enter email\"\n                 placeholder=\" Please enter a valid email address\"\n                 required=\"required\">\n          <input aria-label=\"Size\"\n                 required=\"required\"\n                 type=\"text\"\n                 id=\"ContactFormSize\"\n                 name=\"contact[Size]\"\n                 placeholder=\"Enter out of stock item\">\n          <input type=\"hidden\"\n                 name=\"contact[body]\"\n                 value=\"Please notify me when {{ product.title | escape }} becomes available.\" \/>\n        {{ product.selected_or_first_available_variant.name }}\n          <div style=\"margin-top: 1em\">\n            <button class=\"button\" type=\"submit\">Join Waiting List<\/button>\n          <\/div>\n\t\t<\/div>\n    <\/div>\n    {% endunless %}\n  {% endform %}\n{% endif %}\n\n<script>\nvar ready = (callback) => {\n  if (document.readyState != \"loading\") callback();\n  else document.addEventListener(\"DOMContentLoaded\", callback);\n}\nready(() => {\n     document.querySelector(\"#notify-me\").addEventListener(\"click\", () => {\n            document.querySelector(\"#wrapper\").classList.toggle('hide');\n          });\n});\n<\/script>\n\n<style>\n.hide {\n  display: none;\n}\n.waiting-wrapper {\n  display: flex;\n  flex-direction: column;\n  gap: 1em;\n}\n.grecaptcha-badge {\n  visibility: hidden;\n}\n<\/style>"
+          }
         }
       },
       "block_order": [
@@ -58,7 +64,8 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "share",
+        "647dcd0a-1443-44d3-8f96-e5dbba32d66d"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -67,6 +74,11 @@
         "mobile_thumbnails": "hide",
         "hide_variants": false,
         "enable_video_looping": false
+      }
+    },
+    "custom-recommendations": {
+      "type": "custom-recommendations",
+      "settings": {
       }
     },
     "product-recommendations": {
@@ -79,11 +91,6 @@
         "show_image_outline": true,
         "show_vendor": false,
         "show_rating": false
-      }
-    },
-    "custom-recommendations": {
-      "type": "custom-recommendations",
-      "settings": {
       }
     }
   },
