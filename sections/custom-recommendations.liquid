@@ -1,12 +1,55 @@
+{%- assign handles = product.metafields.my_fields.recommended_products | split:"," -%}
+
+<div class="custom-products-wrapper page-width">
+   <h3>Recommendations</h3>
+    <ul class="custom-products-grid">
+       {%- for handle in handles -%}
+ 	    {% assign relatedProduct = handle | handle %}
+    	<li class="custom-products-grid-item">
+           <a href="{{all_products[relatedProduct].url}}">
+		   <img class="custom-products-img" src='{{all_products[relatedProduct].featured_image | img_url: '600x600' }}'
+             loading="lazy"
+             alt="{{all_products[relatedProduct].featured_image.alt}}"/>
+           </a>
+           <h3><a class="custom-products-a" href="{{all_products[relatedProduct].url}}">{{all_products[relatedProduct].title}}</a></h3>
+           <p>{{all_products[relatedProduct].price | money }}</p>
+        </li>
+       {% endfor %}
+    </ul>
+</div>
+
+<style>
+
+.custom-products-wrapper{
+  margin: 1rem auto;
+}
+.custom-products-img {
+  width: 100%;
+}
+.custom-products-grid {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  list-style: none;
+  margin:0;
+  padding: 0;
+}
+.custom-products-grid-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.custom-products-a {
+  text-decoration: none;
+  color: black;
+}
+
+</style>
+
 {% schema %}
   {
-    "name": "Section name",
+    "name": "Custom Recommendations",
     "settings": []
   }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
