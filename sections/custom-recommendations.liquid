@@ -1,7 +1,9 @@
 {%- assign handles = product.metafields.my_fields.recommended_products | split:"," -%}
 
 <div class="custom-products-wrapper page-width">
+  {% if handles %}
    <h3>Custom Recommendations</h3>
+  {% endif %}
     <ul class="custom-products-grid">
        {%- for handle in handles -%}
  	    {% assign relatedProduct = handle | handle %}
