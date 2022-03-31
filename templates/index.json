@@ -4,8 +4,7 @@
       "type": "video-background",
       "settings": {
         "heading": "Background Video Demo",
-        "bg_video_url": "",
-        "video_url": "https:\/\/youtu.be\/pihEkzQ3YCE",
+        "video_url": "",
         "link_text": "BUY NOW",
         "link_url": "shopify:\/\/products\/bright-beach-umbrella",
         "blur": 0,
