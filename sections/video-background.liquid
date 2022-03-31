@@ -4,8 +4,13 @@
   <a class='button' href='{{ section.settings.link_url }}'>{{ section.settings.link_text }}</a>
   </div>
   <video class="video-bg" autoplay muted loop playsinline>
-  	<source src={{ section.settings.video_url }} type='video/mp4'>
+  	<source src={{ section.settings.bg_video_url }} type='video/mp4'>
   </video>
+      <template>
+      {%- if section.settings.video_url.type == 'youtube' -%}
+        <iframe src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?enablejsapi=1" class="js-youtube" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.description | escape }}"></iframe>
+       {%- endif -%}
+    </template>
 </div>
 
 {% schema %}
@@ -19,8 +24,20 @@
     },
       {
       "type": "url",
-      "id": "video_url",
+      "id": "bg_video_url",
       "label": "Enter the video url here"
+    },
+ {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": [
+        "youtube",
+        "vimeo"
+      ],
+      "default": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+      "label": "t:sections.video.settings.video_url.label",
+      "placeholder": "t:sections.video.settings.video_url.placeholder",
+      "info": "t:sections.video.settings.video_url.info"
     },
       {
       "type": "text",
