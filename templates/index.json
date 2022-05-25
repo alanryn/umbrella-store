@@ -201,6 +201,22 @@
         "button_link": "",
         "swipe_on_mobile": false
       }
+    },
+    "1653462662f586734f": {
+      "type": "popup",
+      "settings": {
+        "popup_title": "Sign-up",
+        "header_font_size": 48,
+        "popup_message": "Subscribe to our newsletter",
+        "message_font_size": 16,
+        "submit_button_text": "Sign-up",
+        "button_color": "#ffa500",
+        "button_text_color": "#fff",
+        "button_hover_color": "#ff4500",
+        "fadein": 4,
+        "show_popup": true,
+        "popup_image": "shopify:\/\/shop_images\/The-Umbrellas-of-Cherbourg.jpg"
+      }
     }
   },
   "order": [
@@ -210,6 +226,7 @@
     "featured_products",
     "collage",
     "video",
-    "multi_column"
+    "multi_column",
+    "1653462662f586734f"
   ]
 }
