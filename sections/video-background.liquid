@@ -1,5 +1,8 @@
 <div class="hero">
+  <div>
   <h1>{{ section.settings.heading }}</h1>
+  <a class='button' href='{{ section.settings.link_url }}'>{{ section.settings.link_text }}</a>
+  </div>
   <video class="video-bg" autoplay muted loop playsinline>
   	<source src={{ section.settings.video_url }} type='video/mp4'>
   </video>
@@ -18,6 +21,16 @@
       "type": "url",
       "id": "video_url",
       "label": "Enter the video url here"
+    },
+      {
+      "type": "text",
+      "id": "link_text",
+      "label": "Enter the button text"
+    },
+      {
+      "type": "url",
+      "id": "link_url",
+      "label": "Button link page"
     },
     {
       "type": "range",
@@ -69,10 +82,11 @@
     position: relative;
     overflow: hidden;
   }
-.hero h1{
+.hero div {
     padding: 1.5em;
     background: hsl(0 100% 100% / 25%);
     backdrop-filter: blur(10px);
   }
 
 </style>
+
