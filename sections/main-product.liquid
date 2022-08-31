@@ -299,6 +299,20 @@
               </details>
             </share-button>
             <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+
+ {%- when "color_swatch"-%}
+        {%- if product.metafields.custom.product_color_list != blank -%}
+            <p>Available colors: </p>
+            <div class="color-list">
+                {% for p in product.metafields.custom.product_color_list.value %}
+                <a {% if product.handle == p.handle %}href="#" style="cursor:default;" {% else %} href="{{ p.url }}"{% endif %} >
+                    <div class="color-item" style="background-color: {{ p.metafields.custom.color.value }};">
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        {%- endif -%}
+            
           {%- when 'variant_picker' -%}
             {%- unless product.has_only_default_variant -%}
               {%- if block.settings.picker_type == 'button' -%}
