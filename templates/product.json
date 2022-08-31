@@ -21,6 +21,11 @@
           "settings": {
           }
         },
+        "color_swatch": {
+          "type": "color_swatch",
+          "settings": {
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -60,6 +65,7 @@
         "vendor",
         "title",
         "price",
+        "color_swatch",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
