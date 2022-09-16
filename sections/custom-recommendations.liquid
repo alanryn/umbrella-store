@@ -1,57 +1,62 @@
-{%- assign handles = product.metafields.my_fields.recommended_products | split:"," -%}
-
-<div class="custom-products-wrapper page-width">
-  {% if handles != blank %}
-   <h3>Custom Recommendations</h3>
+<div class="page-width">
+  {% if product.metafields.custom.recommended_products != blank %}
+  <h2 class="product-recommendations__heading h2">Custom Recommendations</h2>
   {% endif %}
-    <ul class="custom-products-grid">
-       {%- for handle in handles -%}
- 	    {% assign relatedProduct = handle | handle %}
-    	<li class="custom-products-grid-item">
-           <a href="{{all_products[relatedProduct].url}}">
-		   <img class="custom-products-img" src='{{all_products[relatedProduct].featured_image | img_url: '600x600' }}'
-             loading="lazy"
-             alt="{{all_products[relatedProduct].featured_image.alt}}"/>
-           </a>
-           <h3><a class="custom-products-a" href="{{all_products[relatedProduct].url}}">{{all_products[relatedProduct].title}}</a></h3>
-           <p>{{all_products[relatedProduct].price | money }}</p>
-        </li>
-       {% endfor %}
-    </ul>
+  <ul
+    class="grid product-grid grid--4-col-desktop grid--2-col-tablet-down"
+    role="list"
+  >
+    {% for p in product.metafields.custom.recommended_products.value %}
+    <li class="grid__item">
+      <div class="card-wrapper underline-links-hover">
+        <div
+          class="card card--standard card--media "
+          style="--ratio-percent: 100%;"
+        >
+          <div
+            class="card__inner color-background-2 gradient ratio"
+            style="--ratio-percent: 100%;"
+          >
+            <div class="card__media">
+              <div class="media media--transparent media--hover-effect">
+                <img
+                  class="custom-products-img"
+                  srcset="{%- if p.featured_media.width >= 165 -%}{{ p.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                              {%- if p.featured_media.width >= 360 -%}{{ p.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                              {%- if p.featured_media.width >= 533 -%}{{ p.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                              {%- if p.featured_media.width >= 720 -%}{{ p.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                              {%- if p.featured_media.width >= 940 -%}{{ p.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                              {%- if p.featured_media.width >= 1066 -%}{{ p.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                              {{ p.featured_media | image_url }} {{ p.featured_media.width }}w"
+                  src="{{p.featured_media | img_url: width: 533 }}"
+                  width="{{ p.featured_media.width }}"
+                  height="{{ p.featured_media.height }}"
+                  loading="lazy"
+                  alt="{{ p.featured_media.alt }}"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="card__content">
+            <div class="card__information">
+              <h3 class="card__heading h5">
+                <a class="full-unstyled-link" href="{{p.url}}">{{p.title}}</a>
+              </h3>
+              <div class="card-information">
+                <div class="price ">
+                  <div class="price__container">
+                    <div class="price-item price-item--regular">
+                      {{p.price | money }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
 </div>
-
-<style>
-
-.custom-products-wrapper{
-  margin: 1rem auto;
-}
-.custom-products-img {
-  width: 100%;
-}
-.custom-products-grid {
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
-  list-style: none;
-  margin:0;
-  padding: 0;
-}
-.custom-products-grid-item {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-.custom-products-a {
-  text-decoration: none;
-  color: black;
-}
-
-</style>
-
-{% schema %}
-  {
-    "name": "Custom Recommendations",
-    "settings": []
-  }
-{% endschema %}
 
