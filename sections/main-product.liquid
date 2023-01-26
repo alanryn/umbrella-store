@@ -302,7 +302,7 @@
 
  {%- when "color_swatch"-%}
         {%- if product.metafields.custom.product_color_list != blank -%}
-            <p>Available colors: </p>
+            <p style="font-size: 1.3rem;">Available colors: </p>
             <div class="color-list">
                 {% for p in product.metafields.custom.product_color_list.value %}
                 <a {% if product.handle == p.handle %}href="#" style="cursor:default;" {% else %} href="{{ p.url }}"{% endif %} >
