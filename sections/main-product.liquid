@@ -305,8 +305,9 @@
             <p style="font-size: 1.3rem;">Available colors: </p>
             <div class="color-list">
                 {% for p in product.metafields.custom.product_color_list.value %}
+                  {%  assign index = forloop.index %}
                 <a {% if product.handle == p.handle %}href="#" style="cursor:default;" {% else %} href="{{ p.url }}"{% endif %} >
-                    <div class="color-item" style="background-color: {{ p.metafields.custom.color.value }};">
+                    <div class="color-item" style="background-color: {{ p.metafields.custom.color.value }}; {% if index == 1 %}border:5px green solid;{% endif %}}">
                     </div>
                 </a>
                 {% endfor %}
