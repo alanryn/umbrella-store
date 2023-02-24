@@ -307,7 +307,7 @@
                 {% for p in product.metafields.custom.product_color_list.value %}
                   {%  assign index = forloop.index %}
                 <a {% if product.handle == p.handle %}href="#" style="text-decoration:none; cursor:default;" {% else %} href="{{ p.url }}" style="text-decoration:none;" {% endif %} >
-                    <div class="color-item" style="margin: 0 auto; background-color: {{ p.metafields.custom.color.value }}; {% if index == 1 %}border:5px green solid;{% else %}margin: 0 auto;{% endif %}">
+                    <div class="color-item" style="margin: 0 auto; background-color: {{ p.metafields.custom.color.value }}; {% if index == 1 %}border:5px green solid;{% endif %}">
                     </div>
                     <div> {{ p.metafields.custom.color_swatch_text }}</div>
                 </a>
