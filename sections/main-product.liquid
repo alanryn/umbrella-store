@@ -309,7 +309,7 @@
                 <a {% if product.handle == p.handle %}href="#" style="text-decoration:none; cursor:default; " {% else %} href="{{ p.url }}" style="text-decoration:none;" {% endif %} >
                   <div style="display: flex; flex-direction:column;align-items: center;">
                   <div class="color-item " style="background-color: {{ p.metafields.custom.color.value }};
-                  {% if p.available == false %}opacity: 0.25; text-decoration: line-through;{% endif %} {% if index == 1 %}border:3px black solid;{% endif %}">
+                  {% if p.available == false %}opacity: 0.25;  text-decoration: line-through;{% endif %} {% if index == 1 %}border:3px black solid;{% endif %}">
                     </div>
                
                     <div style="{% if index == 1 %}font-weight:900;{% endif %}{% if p.available == false %}opacity: 0.25;{% endif %} "> {{ p.metafields.custom.color_swatch_text }}</div>
