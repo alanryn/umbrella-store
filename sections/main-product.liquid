@@ -309,7 +309,7 @@
                 <a {% if product.handle == p.handle %}href="#" style="text-decoration:none; cursor:default;" {% else %} href="{{ p.url }}" style="text-decoration:none;" {% endif %} >
                     <div class="color-item" style="margin: 0 auto; background-color: {{ p.metafields.custom.color.value }}; {% if index == 1 %}border:5px green solid;{% endif %}">
                     </div>
-                    <div> {{ p.metafields.custom.color_swatch_text }}</div>
+                    <div style="margin: 0 auto;> {{ p.metafields.custom.color_swatch_text }}</div>
                 </a>
                 {% endfor %}
             </div>
