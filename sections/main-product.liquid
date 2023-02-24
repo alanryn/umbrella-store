@@ -308,7 +308,7 @@
                   {%  assign index = forloop.index %}
                 <a {% if product.handle == p.handle %}href="#" style="cursor:default; border: 1px solid red; display: grid;
   justify-content: center;
-  align-content: center;" {% else %} href="{{ p.url }}"{% endif %} >
+  align-content: center;margin: 0 auto;" {% else %} href="{{ p.url }}"{% endif %} >
                     <div class="color-item" style="background-color: {{ p.metafields.custom.color.value }}; {% if index == 1 %}border:5px green solid;{% endif %}">
                    xxx </div>
                  <div> {{ p.metafields.custom.color_swatch_text }}</div>
