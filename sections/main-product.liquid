@@ -308,9 +308,10 @@
                   {%  assign index = forloop.index %}
                 <a {% if product.handle == p.handle %}href="#" style="text-decoration:none; cursor:default; " {% else %} href="{{ p.url }}" style="text-decoration:none;" {% endif %} >
                   <div style="display: flex; flex-direction:column;align-items: center;">
-                    <div class="color-item" style="background-color: {{ p.metafields.custom.color.value }}; {% if index == 1 %}border:3px black solid;{% endif %}">
-                    </div>
-                    <div style="{% if index == 1 %}font-weight:900;{% endif %}""> {{ p.metafields.custom.color_swatch_text }}: {{ p.available }}</div>
+                 <span class="strikethrough-diagonal">   <div class="color-item" style="background-color: {{ p.metafields.custom.color.value }}; {% if index == 1 %}border:3px black solid;{% endif %}">
+                    </div></span>
+                  
+                    <div style="{% if index == 1 %}font-weight:900;{% endif %}""> {{ p.metafields.custom.color_swatch_text }}</div>
                   </div>
                 </a>
                 {% endfor %}
@@ -1035,4 +1036,16 @@
       border-radius: 100%;
       border: 1px solid gray;
       }
+.strikethrough-diagonal:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 45%;
+    right: 0;
+    border-top: 1px solid;
+    border-color: inherit;
+    -webkit-transform: skewY(-10deg);
+    -moz-transform: skewY(-10deg);
+    transform: skewY(-10deg);
+  }
 {% endstylesheet %}
