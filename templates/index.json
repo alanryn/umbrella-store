@@ -2,6 +2,9 @@
   "sections": {
     "1647356025046e2cb2": {
       "type": "video-background",
+      "custom_css": [
+        "h1{color:red}"
+      ],
       "settings": {
         "heading": "Background Video Demo",
         "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0072\/2000\/2887\/files\/sea.mp4?v=1647355947",
