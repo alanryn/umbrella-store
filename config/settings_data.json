@@ -19,18 +19,18 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
-          "announcement-bar-0": {
+          "b721c863-1ea2-4e6f-a539-80fedca98522": {
             "type": "announcement",
             "settings": {
-              "message_one": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-              "message_two": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layoutsage two",
+              "message_one": "Message one",
+              "message_two": "Message two",
               "color_scheme": "background-1",
               "link": ""
             }
           }
         },
         "block_order": [
-          "announcement-bar-0"
+          "b721c863-1ea2-4e6f-a539-80fedca98522"
         ],
         "settings": {
         }
