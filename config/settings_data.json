@@ -23,7 +23,7 @@
             "type": "announcement",
             "settings": {
               "message_one": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-              "message_two": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layoutsage two",
+              "message_two": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layouts",
               "color_scheme": "background-1",
               "link": ""
             }
