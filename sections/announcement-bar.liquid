@@ -123,20 +123,23 @@
   user-select: none;
   gap: var(--gap);
 }
+/*   make width 50% on screens bigger than 769px  */
 @media screen and (min-width: 769px) {
   .marquee {
     width: 50vw;
   }
 }
-  
-  .marquee__content {
+.marquee__content {
   flex-shrink: 0;
   display: flex;
   justify-content: space-around;
   gap: var(--gap);
   min-width: 100%;
 }
-
+.marquee__content li {
+font-family: Georgia, serif;
+font-size: 2rem;
+}
 @keyframes scroll {
   from {
     transform: translateX(0);
