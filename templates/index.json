@@ -3,7 +3,8 @@
     "1647356025046e2cb2": {
       "type": "video-background",
       "custom_css": [
-
+        "h1 {color: red;}",
+        ".button {color: blue;}"
       ],
       "settings": {
         "heading": "Background Video Demo",
