@@ -3,7 +3,7 @@
     "1647356025046e2cb2": {
       "type": "video-background",
       "custom_css": [
-        "h1{color:red}"
+
       ],
       "settings": {
         "heading": "Background Video Demo",
@@ -16,7 +16,6 @@
     },
     "image_banner": {
       "type": "image-banner",
-      "disabled": true,
       "blocks": {
         "heading": {
           "type": "heading",
@@ -41,6 +40,7 @@
         "heading",
         "button"
       ],
+      "disabled": true,
       "settings": {
         "image_overlay_opacity": 0,
         "image_height": "medium",
@@ -56,7 +56,6 @@
     },
     "rich_text": {
       "type": "rich-text",
-      "disabled": true,
       "blocks": {
         "heading": {
           "type": "heading",
@@ -85,6 +84,7 @@
         "text",
         "button"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "background-1",
         "full_width": true
@@ -108,7 +108,6 @@
     },
     "collage": {
       "type": "collage",
-      "disabled": true,
       "blocks": {
         "video": {
           "type": "video",
@@ -141,6 +140,7 @@
         "product",
         "collection"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Multimedia collage",
         "desktop_layout": "left",
@@ -159,7 +159,6 @@
     },
     "multi_column": {
       "type": "multicolumn",
-      "disabled": true,
       "blocks": {
         "column1": {
           "type": "column",
@@ -194,6 +193,7 @@
         "column2",
         "column3"
       ],
+      "disabled": true,
       "settings": {
         "title": "Multicolumn",
         "image_width": "full",
