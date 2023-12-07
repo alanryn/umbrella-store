@@ -7,6 +7,7 @@
       ],
       "settings": {
         "heading": "Background Video Demo",
+        "overlay-bg-color": "#861b33",
         "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0072\/2000\/2887\/files\/sea.mp4?v=1647355947",
         "link_text": "BUY NOW",
         "link_url": "shopify:\/\/products\/bright-beach-umbrella",
