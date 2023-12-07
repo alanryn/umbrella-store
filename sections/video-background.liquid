@@ -1,5 +1,5 @@
 <div class="hero">
-  <div>
+  <div class="overlay-bg">
   <h1>{{ section.settings.heading }}</h1>
   <a class='button' href='{{ section.settings.link_url }}'>{{ section.settings.link_text }}</a>
   </div>
@@ -19,7 +19,7 @@
     },
             {
       "type": "color",
-      "id": "bg-color",
+      "id": "overlay-bg-color",
       "label": "Text overlay color"
     },
       {
@@ -91,6 +91,8 @@
     background: hsl(0 100% 100% / 25%);
     backdrop-filter: blur(10px);
   }
-
+.overlay-bg {
+  background-color: {{section.settings.overlay-bg-color}};
+}
 </style>
 
