@@ -1,5 +1,13 @@
 {
   "current": {
+    "type_header_font": "assistant_n4",
+    "heading_scale": 100,
+    "type_body_font": "assistant_n4",
+    "body_scale": 100,
+    "page_width": 1200,
+    "animations_hover_elements": "3d-lift",
+    "predictive_search_enabled": true,
+    "predictive_search_show_price": false,
     "colors_solid_button_labels": "#ffffff",
     "colors_accent_1": "#121212",
     "colors_accent_2": "#334fb4",
@@ -7,43 +15,15 @@
     "colors_outline_button_labels": "#121212",
     "colors_background_1": "#ffffff",
     "colors_background_2": "#f3f3f3",
-    "type_header_font": "assistant_n4",
-    "heading_scale": 100,
-    "type_body_font": "assistant_n4",
-    "body_scale": 100,
     "accent_icons": "text",
-    "page_width": "1200",
-    "predictive_search_enabled": true,
-    "predictive_search_show_price": false,
     "sections": {
-      "announcement-bar": {
-        "type": "announcement-bar",
-        "blocks": {
-          "b721c863-1ea2-4e6f-a539-80fedca98522": {
-            "type": "announcement",
-            "settings": {
-              "message_one": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-              "message_two": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layouts",
-              "color_scheme": "background-1",
-              "link": ""
-            }
-          }
-        },
-        "block_order": [
-          "b721c863-1ea2-4e6f-a539-80fedca98522"
-        ],
-        "settings": {
-        }
-      },
       "header": {
         "type": "header",
         "settings": {
-          "color_scheme": "background-1",
-          "logo_width": 130,
           "logo_position": "top-center",
           "menu": "main-menu",
           "show_line_separator": false,
-          "enable_sticky_header": true
+          "color_scheme": "background-1"
         }
       },
       "footer": {
@@ -93,25 +73,7 @@
       "colors_background_1": "#FFFFFF",
       "colors_background_2": "#F3F3F3",
       "type_header_font": "assistant_n4",
-      "type_body_font": "assistant_n4",
-      "sections": {
-        "announcement-bar": {
-          "type": "announcement-bar",
-          "blocks": {
-            "announcement-bar-0": {
-              "type": "announcement",
-              "settings": {
-                "color_scheme": "background-1"
-              }
-            }
-          },
-          "block_order": [
-            "announcement-bar-0"
-          ],
-          "settings": {
-          }
-        }
-      }
+      "type_body_font": "assistant_n4"
     },
     "Craft": {
       "colors_solid_button_labels": "#EFECEC",
