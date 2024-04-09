@@ -1,43 +1,40 @@
+<div class="isolate">
 <div class="hero">
   <div>
   <h1>{{ section.settings.heading }}</h1>
   <a class='button' href='{{ section.settings.link_url }}'>{{ section.settings.link_text }}</a>
   </div>
-  <video class="video-bg" autoplay muted loop playsinline>
+  <video class="video-bg" autoplay muted loop playsinline poster={{ section.settings.poster }}>
   	<source src={{ section.settings.video_url }} type='video/mp4'>
   </video>
 </div>
-
+</div>
 {% schema %}
   {
-    "name": "Video Background Banner",
+    "name": "tsp Video Background",
     "settings": [
       {
       "type": "text",
       "id": "heading",
       "label": "Overlay text"
     },
-            {
-      "type": "color",
-      "id": "overlay-bg-color",
-      "label": "Text overlay color"
-    },
-   {
-      "type": "range",
-      "id": "text-overlay-blur",
-      "min": 0,
-      "max": 10,
-      "step": 1,
-      "unit": "px",
-      "label": "Change text overlay background opacity",
-      "default": 5
-    },
+     {
+        "type":"checkbox",
+        "id": "blur_behind_text",
+        "label": "Add blur behind text to make more readable",
+        "default": false
+      },
       {
       "type": "url",
       "id": "video_url",
-      "label": "Enter the video url here"
+      "label": "Enter the video url here (link to mp4 file uploaded to Shopify files)"
     },
-      {
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Add fallback background image in case video doesn't load"
+    },
+    {
       "type": "text",
       "id": "link_text",
       "label": "Enter CTA button text (if required)"
@@ -69,7 +66,7 @@
 ],
   "presets": [
     {
-      "name": "Video Background Banner"
+      "name": "tsp Video Background"
     }
   ]
   }
@@ -91,17 +88,18 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: white;
     margin-bottom: 100px;
     min-height: 100vh;
     position: relative;
     overflow: hidden;
   }
+{% if section.settings.blur_behind_text %}
 .hero div {
     padding: 1.5em;
-    background-color:{{section.settings.overlay-bg-color}};
-    filter: blur({{ section.settings.text-overlay-blur}}px);
-    /* backdrop-filter: blur(10px); */
+    background: hsl(0 100% 100% / 25%);
+    backdrop-filter: blur(10px);
   }
+{% endif %}
 
 </style>
-
